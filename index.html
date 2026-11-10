@@ -1,0 +1,213 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MY KAS - Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="sidebar">
+    <h2>MY<span>KAS</span></h2>
+
+    <p class="menu-title">MENU UTAMA</p>
+
+    <a class="active" href="#dashboard">▦ Dashboard</a>
+    <a href="#transaksi">▣ Transaksi</a>
+    <a href="#pembayaran">⇄ Pembayaran</a>
+    <a href="#laporan">◷ Laporan</a>
+    <hr>
+    <a href="#anggota">♙ Anggota</a>
+    <a href="#pengaturan">⚙ Pengaturan</a>
+
+    <div class="sidebar-bottom">
+        <h4>MY KAS</h4>
+        <p>Kelola uang kas lebih mudah dan transparan.</p>
+    </div>
+</div>
+
+<main class="main" id="dashboard">
+
+    <header class="topbar">
+        <div>
+            <h1>Dashboard</h1>
+            <p>Ringkasan keuangan MY KAS</p>
+        </div>
+
+        <div class="admin">
+            <span>Admin MY KAS</span>
+            <div class="avatar">AD</div>
+        </div>
+    </header>
+
+    <section class="cards">
+        <div class="card">
+            <p>Total Pemasukan</p>
+            <h2 id="totalIncome">Rp 0</h2>
+            <span>↗ Uang masuk</span>
+        </div>
+
+        <div class="card">
+            <p>Saldo Kas</p>
+            <h2 id="totalBalance">Rp 0</h2>
+            <span>◈ Saldo tersedia</span>
+        </div>
+
+        <div class="card">
+            <p>Total Pengeluaran</p>
+            <h2 id="totalExpense">Rp 0</h2>
+            <span>↘ Uang keluar</span>
+        </div>
+
+        <div class="card">
+            <p>Total Transaksi</p>
+            <h2 id="totalTransactions">0</h2>
+            <span>▤ Semua transaksi</span>
+        </div>
+    </section>
+
+    <section class="content">
+
+        <div class="panel" id="pembayaran">
+            <div class="panel-header">
+                <h3>Pembayaran Masuk</h3>
+                <span>•••</span>
+            </div>
+
+            <p class="small">Total dibayarkan</p>
+            <h2 id="paidTotal">Rp 0</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Dari</th>
+                        <th>Nominal</th>
+                        <th>Metode</th>
+                    </tr>
+                </thead>
+                <tbody id="paymentRows"></tbody>
+            </table>
+        </div>
+
+        <div class="panel" id="laporan">
+            <div class="panel-header">
+                <h3>Ringkasan Pengeluaran</h3>
+                <select id="chartPeriod">
+                    <option value="year">Tahun ini</option>
+                    <option value="month">6 bulan</option>
+                </select>
+            </div>
+
+            <h2 id="chartTotal">Rp 0</h2>
+
+            <div class="chart" id="chart">
+                <div class="bar" style="height:30%"></div>
+                <div class="bar" style="height:45%"></div>
+                <div class="bar" style="height:35%"></div>
+                <div class="bar" style="height:65%"></div>
+                <div class="bar" style="height:55%"></div>
+                <div class="bar" style="height:80%"></div>
+                <div class="bar" style="height:95%"></div>
+                <div class="bar" style="height:50%"></div>
+                <div class="bar" style="height:25%"></div>
+                <div class="bar" style="height:60%"></div>
+                <div class="bar" style="height:70%"></div>
+                <div class="bar" style="height:40%"></div>
+            </div>
+
+            <div class="months">
+                <span>Jan</span><span>Feb</span><span>Mar</span>
+                <span>Apr</span><span>Mei</span><span>Jun</span>
+                <span>Jul</span><span>Agu</span><span>Sep</span>
+                <span>Okt</span><span>Nov</span><span>Des</span>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="panel transactions" id="transaksi">
+        <div class="panel-header">
+            <div>
+                <h3>Transaksi Terbaru</h3>
+                <p class="small">Daftar aktivitas keuangan terakhir</p>
+            </div>
+
+            <button onclick="openModal()">+ Tambah Transaksi</button>
+        </div>
+
+        <input type="text" id="search" placeholder="Cari transaksi...">
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Transaksi</th>
+                        <th>Kategori</th>
+                        <th>Tanggal</th>
+                        <th>Jenis</th>
+                        <th>Nominal</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody id="transactionRows"></tbody>
+            </table>
+        </div>
+
+        <div class="bottom">
+            <span id="rowCount">Menampilkan 0 transaksi</span>
+            <button class="export" onclick="exportCSV()">↓ Export CSV</button>
+        </div>
+    </section>
+
+    <footer>
+        © 2026 MY KAS. Aplikasi Pengelolaan Uang Kas.
+    </footer>
+
+</main>
+
+<!-- MODAL TAMBAH TRANSAKSI -->
+<div class="modal" id="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">×</span>
+
+        <h2>Tambah Transaksi</h2>
+
+        <form id="transactionForm">
+
+            <label>Jenis Transaksi</label>
+            <select id="type">
+                <option value="income">Pemasukan</option>
+                <option value="expense">Pengeluaran</option>
+            </select>
+
+            <label>Keterangan</label>
+            <input type="text" id="description"
+                placeholder="Masukkan keterangan" required>
+
+            <label>Kategori</label>
+            <select id="category">
+                <option>Iuran</option>
+                <option>Donasi</option>
+                <option>Kegiatan</option>
+                <option>Konsumsi</option>
+                <option>Operasional</option>
+                <option>Lainnya</option>
+            </select>
+
+            <label>Nominal</label>
+            <input type="number" id="amount"
+                min="1" placeholder="Masukkan nominal" required>
+
+            <label>Tanggal</label>
+            <input type="date" id="date" required>
+
+            <button type="submit">Simpan Transaksi</button>
+        </form>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

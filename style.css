@@ -1,0 +1,429 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f5f6fa;
+    color: #202635;
+}
+
+.sidebar {
+    width: 245px;
+    height: 100vh;
+    position: fixed;
+    background: #191f2e;
+    color: white;
+    padding: 30px 20px;
+}
+
+.sidebar h2 {
+    font-size: 25px;
+    margin-bottom: 45px;
+}
+
+.sidebar h2 span {
+    color: #35c994;
+}
+
+.menu-title {
+    color: #8993a5;
+    font-size: 11px;
+    margin-bottom: 15px;
+}
+
+.sidebar a {
+    display: block;
+    color: #b8c0ce;
+    text-decoration: none;
+    padding: 13px;
+    margin-bottom: 6px;
+    border-radius: 6px;
+    font-size: 13px;
+}
+
+.sidebar a:hover,
+.sidebar a.active {
+    background: #2c3a55;
+    color: white;
+}
+
+.sidebar hr {
+    border: 1px solid #343b4b;
+    margin: 15px 0;
+}
+
+.sidebar-bottom {
+    position: absolute;
+    bottom: 30px;
+    background: #252e40;
+    padding: 17px;
+    border-radius: 9px;
+    width: 205px;
+}
+
+.sidebar-bottom h4 {
+    color: #35c994;
+    margin-bottom: 8px;
+}
+
+.sidebar-bottom p {
+    color: #bdc5d1;
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+.main {
+    margin-left: 245px;
+    padding: 30px;
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.topbar h1 {
+    font-size: 27px;
+}
+
+.topbar p {
+    color: #929baa;
+    font-size: 12px;
+    margin-top: 6px;
+}
+
+.admin {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 12px;
+}
+
+.avatar {
+    width: 38px;
+    height: 38px;
+    background: #dce8f5;
+    color: #405779;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-weight: bold;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 9px;
+    border: 1px solid #edf0f4;
+}
+
+.card p {
+    color: #7c8798;
+    font-size: 12px;
+}
+
+.card h2 {
+    font-size: 21px;
+    margin: 18px 0 12px;
+}
+
+.card span {
+    color: #20a879;
+    font-size: 11px;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 18px;
+    margin-bottom: 20px;
+}
+
+.panel {
+    background: white;
+    border-radius: 9px;
+    padding: 20px;
+    border: 1px solid #edf0f4;
+    margin-bottom: 20px;
+    min-width: 0;
+}
+
+.panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.panel-header h3 {
+    font-size: 14px;
+}
+
+.small {
+    font-size: 11px;
+    color: #929baa;
+    margin-top: 8px;
+}
+
+.panel > h2 {
+    margin: 10px 0;
+    font-size: 23px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    white-space: nowrap;
+}
+
+th {
+    background: #f5f6f8;
+    color: #8993a5;
+    text-align: left;
+    font-size: 10px;
+    padding: 12px 9px;
+}
+
+td {
+    padding: 13px 9px;
+    border-bottom: 1px solid #edf0f4;
+    font-size: 11px;
+}
+
+.chart {
+    height: 160px;
+    display: flex;
+    align-items: end;
+    justify-content: space-around;
+    gap: 9px;
+    padding: 10px 5px 0;
+    border-bottom: 1px solid #e5e8ee;
+    background: repeating-linear-gradient(
+        to bottom,
+        transparent 0,
+        transparent 39px,
+        #edf0f4 40px
+    );
+}
+
+.bar {
+    background: #91a4c1;
+    width: 22px;
+    max-width: 8%;
+    border-radius: 4px 4px 0 0;
+}
+
+.bar:nth-child(7) {
+    background: #191f2e;
+}
+
+.months {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 9px;
+    color: #929baa;
+    font-size: 9px;
+}
+
+button {
+    border: none;
+    background: #405779;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 11px;
+}
+
+button:hover {
+    opacity: .85;
+}
+
+.transactions input {
+    width: 100%;
+    padding: 11px;
+    border: 1px solid #e4e9f0;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    outline: none;
+}
+
+.table-container {
+    overflow-x: auto;
+}
+
+.bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    color: #929baa;
+    font-size: 11px;
+}
+
+.export {
+    background: white;
+    color: #405779;
+    border: 1px solid #e4e9f0;
+}
+
+.delete {
+    background: #dc5353;
+    padding: 7px 10px;
+}
+
+.income {
+    color: #15976a;
+    font-weight: bold;
+}
+
+.expense {
+    color: #d77968;
+    font-weight: bold;
+}
+
+footer {
+    text-align: center;
+    color: #929baa;
+    padding: 20px;
+    font-size: 11px;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: #0008;
+    z-index: 10;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal-content {
+    background: white;
+    padding: 25px;
+    width: 400px;
+    max-width: 100%;
+    border-radius: 12px;
+    position: relative;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal-content h2 {
+    margin-bottom: 20px;
+}
+
+.close {
+    position: absolute;
+    right: 20px;
+    top: 12px;
+    font-size: 27px;
+    cursor: pointer;
+    color: #777;
+}
+
+.modal label {
+    display: block;
+    margin: 12px 0 7px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.modal input,
+.modal select {
+    width: 100%;
+    padding: 11px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}
+
+.modal button[type="submit"] {
+    width: 100%;
+    margin-top: 20px;
+}
+
+@media(max-width: 1000px) {
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .content {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media(max-width: 650px) {
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        padding: 15px;
+    }
+
+    .sidebar h2 {
+        margin-bottom: 15px;
+    }
+
+    .sidebar-bottom,
+    .menu-title,
+    .sidebar hr {
+        display: none;
+    }
+
+    .sidebar a {
+        display: inline-block;
+        padding: 9px;
+        font-size: 11px;
+    }
+
+    .main {
+        margin: 0;
+        padding: 18px 12px;
+    }
+
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 9px;
+    }
+
+    .card {
+        padding: 13px;
+    }
+
+    .card h2 {
+        font-size: 16px;
+    }
+
+    .topbar h1 {
+        font-size: 21px;
+    }
+
+    .admin span {
+        display: none;
+    }
+
+    .panel {
+        padding: 14px;
+    }
+}
